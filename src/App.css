@@ -1,3 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400, 700);
+
+/* Global Styles */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #c5ddeb;
+  font: 14px/20px 'Lato', Arial, sans-serif;
+  padding: 40px 0;
+  color: white;
+}
+
 .sr-only {
   position: absolute;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
