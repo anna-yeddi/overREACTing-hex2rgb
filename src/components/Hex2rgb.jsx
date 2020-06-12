@@ -2,21 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function Hex2rgb(props) {
+  const hexDefault = '#34495e'
+
   return (
-    <div className="container" style={{ backgroundColor: '#34495e' }}>
-      <label htmlFor="hex-input">HEX Color Code</label>
+    <div className="container" style={{ backgroundColor: { hexDefault } }}>
+      <label htmlFor="hex-input" className="hex-input-label">
+        HEX <span className="hex-input-inner">Code</span>
+      </label>
       <input
         name="hex"
         id="hex-input"
         value="#34495e"
-        className="input"
+        className="input-text"
         aria-describedby="hex-error"
         placeholder="#xxxxxx"
         onChange={console.log('changed!')}
         required
       />
       <div className="result">rgb(52, 73, 94)</div>
-      <span className="error" id="hex-error"></span>
+      <div className="error" id="hex-error">
+        Error!
+      </div>
     </div>
   )
 }

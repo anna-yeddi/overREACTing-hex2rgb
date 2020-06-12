@@ -9,10 +9,13 @@
 }
 
 body {
-  background: #c5ddeb;
-  font: 14px/20px 'Lato', Arial, sans-serif;
-  padding: 40px 0;
+  font: 16px/24px 'Lato', Arial, sans-serif;
+}
+
+#root {
   color: white;
+  background: #c5ddeb;
+  --width: 13rem;
 }
 
 .sr-only {
@@ -26,4 +29,59 @@ body {
   width: 1px;
   overflow: hidden;
   white-space: nowrap;
+}
+
+/* HEX2RGB Component Styles */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: teal;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.hex-input-label {
+  margin: -10rem auto -0.125rem auto;
+  max-width: 25rem;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 10rem;
+  line-height: 5rem;
+  text-align: center;
+}
+
+.hex-input-inner {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-text {
+  width: var(--width);
+  border: thin solid white;
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  font-weight: bolder;
+  text-align: center;
+  letter-spacing: 0.15rem;
+}
+
+.result {
+  width: var(--width);
+  /* border: thin solid white; */
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0.75rem 0.5rem;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.error {
+  width: var(--width);
+  background-color: rgba(238, 0, 0, 0.5);
+  padding: 0.75rem 0.5rem;
+  color: white;
 }
