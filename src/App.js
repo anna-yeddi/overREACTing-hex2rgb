@@ -5,7 +5,7 @@ import Hex2rgb from './components/Hex2rgb'
 function App() {
   return (
     <>
-      <Hex2rgb />
+      <Hex2rgb hex="" rgb="" />
     </>
   )
 }
