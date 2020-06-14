@@ -83,16 +83,17 @@ body {
 .result {
   width: var(--width);
   /* border: thin solid white; */
-  background-color: rgba(0, 0, 0, 0.4);
   margin-bottom: 0.35rem;
   padding: 0.75rem 0.5rem;
+  color: white;
   font-weight: bolder;
   text-align: center;
 }
 
-.error {
-  width: var(--width);
+.result-rgb {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.result-error {
   background-color: rgba(238, 0, 0, 0.8);
-  padding: 0.75rem 0.5rem;
-  color: white;
 }
