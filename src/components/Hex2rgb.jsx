@@ -4,60 +4,55 @@ import HexInput from '../components/HexInput'
 
 function Hex2rgb(props) {
   const [hex, setHex] = useState(props.hex)
-  const [isFilled, setIsFilled] = useState(true)
-  const [bgColor, setBgColor] = useState('')
+  const [rgb, setRgb] = useState(props.rgb)
 
   // Validate input:
   const hexRegex = new RegExp('^#[0-9a-f]{6}', 'i')
   const isValidHex = hexRegex.test(hex)
   const isLongHex = hex.length === 7
 
+  console.log(hex)
   // Convert HEX to RGB values:
-  const rgbFrom = (hex) => {
+  const hex2rgbConvert = (hex) => {
     let r = 0,
       g = 0,
       b = 0
 
-    if (hex.length === 7) {
+    if (isLongHex) {
       r = '0x' + hex[1] + hex[2]
       g = '0x' + hex[3] + hex[4]
       b = '0x' + hex[5] + hex[6]
     }
-
-    return 'rgb(' + +r + ',' + +g + ',' + +b + ')'
+    console.log(`rgb(${+r},${+g},${+b})`)
   }
 
   const handleHexInput = (value) => {
-    setHex(value)
-    if (isLongHex) {
-      setIsFilled(hex)
+    if (value.length === 7) {
+      if (hexRegex.test(value)) {
+        setRgb((value) => {
+          hex2rgbConvert(value)
+        })
+      }
     }
-    console.log('Hex set to: ', hex)
-  }
 
-  const handleConvert = (hex) => {
-    setBgColor((prevValue) => {})
-    console.log('Bg set to: ', bgColor)
+    setHex(value)
+    console.log('Hex set to: ', hex)
+    console.log('Rgb is: ', rgb)
   }
 
   return (
-    <div className="container" style={{ backgroundColor: bgColor }}>
+    <div className="container" style={{ backgroundColor: rgb }}>
       <label htmlFor="hex-input" className="hex-input-label">
         HEX <span className="hex-input-inner">Code</span>
       </label>
-      <HexInput onHexInput={handleHexInput} hex={hex} />
+      <HexInput onHexInput={handleHexInput} hex={hex} isValidHex={isValidHex} />
       <div
         className={`result result-${isValidHex ? 'rgb' : 'error'}`}
         id="hex-result">
-        {isValidHex ? rgbFrom(hex) : 'Error: invalid HEX code'}
+        {isValidHex ? rgb : 'Error: invalid HEX code'}
       </div>
     </div>
   )
-}
-
-Hex2rgb.defaultProps = {
-  hex: '#00a0a0',
-  rgb: 'rgb(0,160,160)',
 }
 
 Hex2rgb.propTypes = {

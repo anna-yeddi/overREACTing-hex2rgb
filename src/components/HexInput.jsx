@@ -14,7 +14,7 @@ function HexInput(props) {
       value={props.hex}
       className="input-text"
       aria-describedby="hex-result"
-      // aria-invalid={!isValidHex}
+      aria-invalid={!props.isValidHex}
       placeholder="#xxxxxx"
       maxLength="7"
       onChange={handleInput}
@@ -26,6 +26,7 @@ function HexInput(props) {
 HexInput.propTypes = {
   hex: PropTypes.string.isRequired,
   onHexInput: PropTypes.func.isRequired,
+  isValidHex: PropTypes.bool.isRequired,
 }
 
 export default HexInput
